@@ -1,0 +1,30 @@
+a{
+    cursor: pointer;
+}
+.sugerencias{
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 25%;
+    position: absolute;
+    z-index: 9999;
+    margin-top: 20px;
+    border: 2pt solid black;
+    border-radius: 5px;
+}
+.flex{
+    display: flex;
+    justify-content: space-around;
+}
+.card{
+    cursor: pointer;
+    font-size: 8pt;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+.card:hover{
+    border: 2pt solid green
+}
+.sugerencias img{
+    border: 1pt solid black;
+}

@@ -6,21 +6,44 @@
       <a class="navbar-brand" href="#">Hidden brand</a>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" (click)="Home()">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Renta</a>
+          <a class="nav-link" (click)="Renta()">Renta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Bitacora</a>
+          <a class="nav-link" (click)="Bitacora()">Bitacora</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Acerca de</a>
           </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <div class="flex">
+          <input name="query" [(ngModel)]="query" (focus)="mostrarSugerencias()" (blur)="busqueda=false;" (input)="buscarAuto()" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </div>
+        @if (busqueda) {
+          <div class="sugerencias">
+            <ul>
+              @for (auto of autos; track $index) {
+                <div class="card">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="{{auto.img}}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <p class="card-title">{{auto.marca+" "+auto.modelo}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              }
+            </ul>
+          </div>
+        }
+        
       </form>
     </div>
   </nav>

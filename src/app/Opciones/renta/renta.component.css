@@ -1,0 +1,23 @@
+.space{
+    margin: 18.5px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.flex{
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+i{
+    font-size: 25px;
+}
+.disponible{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

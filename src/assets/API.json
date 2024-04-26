@@ -1,0 +1,103 @@
+[
+    {
+        "id":1,
+        "marca": "Audi",
+        "modelo": "A4",
+        "year": 2023,
+        "color": "Rojo",
+        "precio": 889900,
+        "disponibilidad": false,
+        "img": "assets/img/audi4.jpg"
+    },
+    {
+        "id":2,
+        "marca": "BMW",
+        "modelo": "Serie 3",
+        "year": 2023,
+        "color": "Blanco",
+        "precio": 899900,
+        "disponibilidad": true,
+        "img": "assets/img/bmw.jpg"
+    },
+    {
+        "id":3,
+        "marca": "Chevrolet",
+        "modelo": "Camaro",
+        "year": 2023,
+        "color":"Blanco",
+        "precio": 899900,
+        "disponibilidad": true,
+        "img": "assets/img/camaro.jpg"
+    },
+    {
+        "id":4,
+        "marca": "Ford",
+        "modelo": "Mustang",
+        "year": 2023,
+        "color": "Rojo",
+        "precio": 899900,
+        "disponibilidad": true,
+        "img": "assets/img/mustang.jpg"
+    },
+    {
+        "id":5,
+        "marca": "Mercedes Benz",
+        "modelo": "Clase C",
+        "year": 2023,
+        "color": "Blanco",
+        "precio": 899900,
+        "disponibilidad": true,
+        "img": "assets/img/mercedes.jpg"
+    },
+    {
+        "id":6,
+        "marca": "Nissan",
+        "modelo": "370Z",
+        "year": 2023,
+        "color":"Rojo",
+        "precio": 899900,
+        "disponibilidad": true,
+        "img": "assets/img/nissan.jpg"
+    },
+    {
+        "id":7,
+        "marca": "Toyota",
+        "modelo": "Supra",
+        "year": 2023,
+        "color": "Blanco",
+        "precio": 899900,
+        "disponibilidad": true,
+        "img": "assets/img/supra.jpg"
+    },
+    {
+        "id":8,
+        "marca": "Volkswagen",
+        "modelo": "Golf GTI",
+        "year": 2023,
+        "color": "Rojo",
+        "precio": 899900,
+        "disponibilidad": true,
+        "img": "assets/img/volkswagen.jpg"
+    },
+    {
+        "id":9,
+        "marca": "Volvo",
+        "modelo": "XC40",
+        "year": 2023,
+        "color": "Blanco",
+        "precio": 899900,
+        "disponibilidad": true,
+        "img": "assets/img/volvo.jpg"
+    },
+    {
+        "id":10,
+        "marca": "Audi",
+        "modelo": "A6",
+        "year": 2023,
+        "color": "Rojo",
+        "precio": 899900,
+        "disponibilidad": true,
+        "img": "assets/img/audi6.jpg"
+    }
+]
+  
