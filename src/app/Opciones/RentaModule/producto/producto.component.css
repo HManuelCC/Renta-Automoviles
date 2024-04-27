@@ -1,0 +1,13 @@
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+i{
+    font-size: 25px;
+}
+.disponible{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

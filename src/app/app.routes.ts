@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './Opciones/home/home.component';
 import { BitacoraComponent } from './Opciones/bitacora/bitacora.component';
-import { CatalogoComponent } from './Opciones/catalogo/catalogo.component';
-import { RentaComponent } from './Opciones/renta/renta.component';
+import { CatalogoComponent } from './Opciones/RentaModule/catalogo/catalogo.component';
+import { RentaComponent } from './Opciones/RentaModule/renta/renta.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },

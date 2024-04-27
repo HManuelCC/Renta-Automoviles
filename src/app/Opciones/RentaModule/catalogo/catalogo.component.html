@@ -1,0 +1,9 @@
+
+
+<div class="flex">
+    <div class="row masonry-grid">
+        @for (auto of getProductos(); track $index) {
+            <app-producto class="col-lg-2 col-md-3 col-sm-4 col-6 space" [auto]="auto" (eventRenta)="mostrarRenta($event)"></app-producto>
+        }
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.info{
+    margin: 90px;
+}
+p{
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+h2{
+    text-shadow: 1px 1px 2px black;
+}
+img{
+    background: linear-gradient(to right, rgb(0 0 0 / .5),rgb(0 0 0 / .5));
+}
+.card-img-overlay{
+    background-color: rgba(0, 0, 0, 0.4);
+}
