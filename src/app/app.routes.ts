@@ -3,6 +3,7 @@ import { HomeComponent } from './Opciones/home/home.component';
 import { BitacoraComponent } from './Opciones/bitacora/bitacora.component';
 import { CatalogoComponent } from './Opciones/RentaModule/catalogo/catalogo.component';
 import { RentaComponent } from './Opciones/RentaModule/renta/renta.component';
+import { AcercaComponent } from './Opciones/acerca/acerca.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -10,4 +11,5 @@ export const routes: Routes = [
     { path:'renta',component: CatalogoComponent},
     { path: 'bitacora', component: BitacoraComponent},
     { path: 'renta/:id', component: RentaComponent},
+    { path: 'about', component: AcercaComponent}
 ];

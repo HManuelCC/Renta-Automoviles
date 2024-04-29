@@ -52,4 +52,7 @@ export class AppBarComponent {
     }
     this.busqueda=false;
   }
+  about(){
+    this.rutas.navigate(['about']);
+  }
 }
