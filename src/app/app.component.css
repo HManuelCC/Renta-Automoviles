@@ -1,0 +1,12 @@
+.flotante{
+    z-index: 30;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    margin: 0;
+    padding: 0;
+}
+.content{
+    margin-top: 130px;
+}

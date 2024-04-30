@@ -3,6 +3,7 @@ import { RouterOutlet,Router } from '@angular/router';
 import { ProductosService } from '../services/Productos/productos.service';
 import { Autos } from '../services/Productos/Autos';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-app-bar',
@@ -31,6 +32,12 @@ export class AppBarComponent {
     this.rutas.navigate(['renta']);
   }
 
+  blurSugerencias(){
+    setTimeout(()=>{
+      this.busqueda=false;
+    },200)
+  }
+
   buscarAuto(){
     if(this.query.length<3){
       this.autos=[]
@@ -54,5 +61,18 @@ export class AppBarComponent {
   }
   about(){
     this.rutas.navigate(['about']);
+  }
+
+  clickSugerencia(auto:Autos){
+    if(auto.disponibilidad){
+      this.rutas.navigate(['renta',auto.id]);
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Este auto no esta disponible',
+      })
+    }
+    this.query=''
   }
 }

@@ -10,27 +10,33 @@
   </div>
 </div>
 <div class="form">
-  <h1>Complete el siguiente formulario</h1>
+  <h1>Complete el registro de renta</h1>
   <form>
     <div class="form-group">
       <label for="nombre">Nombre:</label>
-      <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+      <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" required>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Ingrese su email">
+      <input type="email" class="form-control" id="email" placeholder="Ingrese su email" required>
     </div>
     <div class="form-group">
       <label for="telefono">Teléfono:</label>
-      <input type="tel" class="form-control" id="telefono" placeholder="Ingrese su teléfono">
+      <input type="tel" class="form-control" id="telefono" placeholder="Ingrese su teléfono" required>
     </div>
-    <div class="form-group">
-      <label for="fecha">Fecha de renta:</label>
-      <input type="date" class="form-control" id="fecha">
+    <div class="flex_around">
+      <div class="full_size form-group margin_20_right">
+        <label for="fecha">Fecha de renta:</label>
+        <input type="date" class="form-control text_center" id="fecha" required>
+      </div>
+      <div class="full_size form-group margin_20_left">
+        <label for="hora">Hora:</label>
+        <input type="time" class="form-control text_center" id="hora" placeholder="Ingrese su nombre" required>
+      </div>
     </div>
     <div class="form-group">
       <label for="duracion">Duración de renta (en días):</label>
-      <input type="number" class="form-control" id="duracion" min="1">
+      <input type="number" class="form-control" id="duracion" min="1" required>
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
   </form>  
