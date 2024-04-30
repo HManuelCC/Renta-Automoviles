@@ -1,1 +1,22 @@
-<p>bitacora works!</p>
+<div>
+    <select class="form-control" name="opciones" id="opciones" [(ngModel)]="opcionSeleccionada">
+        @for (opcion of opciones; track $index) {
+            <option value="{{opcion}}">{{opcion}}</option>
+        }
+    </select>
+</div>
+@switch (opcionSeleccionada) {
+    @case ("Actuales") {
+        <ul>
+            @for (renta of rentasActuales; track $index) {
+                <li>{{renta.auto.modelo}}</li>
+            }
+        </ul>
+    }
+    @case ("Pasadas") {
+
+    }
+    @default {
+        <div>No se como llegaste a esto pero :)</div>
+    }
+}
