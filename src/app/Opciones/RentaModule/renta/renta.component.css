@@ -52,6 +52,23 @@ input[type="number"] {
     font-size: 14px;
 }
 
+.sin-flechas{
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+
+.counter{
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+.sin-flechas::-webkit-outer-spin-button,
+.sin-flechas::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* Estilos para las etiquetas */
 label {
     font-weight: bold;

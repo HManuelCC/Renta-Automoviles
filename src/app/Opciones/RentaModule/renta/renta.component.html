@@ -11,32 +11,36 @@
 </div>
 <div class="form">
   <h1>Complete el registro de renta</h1>
-  <form>
+  <form [formGroup]="datosReservacion" (ngSubmit)="submitDatos()">
     <div class="form-group">
       <label for="nombre">Nombre:</label>
-      <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" required>
+      <input formControlName="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" required>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Ingrese su email" required>
+      <input formControlName="email" type="email" class="form-control" id="email" placeholder="Ingrese su email" required>
     </div>
     <div class="form-group">
       <label for="telefono">Teléfono:</label>
-      <input type="tel" class="form-control" id="telefono" placeholder="Ingrese su teléfono" required>
+      <input formControlName="telefono" type="tel" class="form-control" id="telefono" placeholder="Ingrese su teléfono" required>
     </div>
     <div class="flex_around">
       <div class="full_size form-group margin_20_right">
         <label for="fecha">Fecha de renta:</label>
-        <input type="date" class="form-control text_center" id="fecha" required>
+        <input formControlName="fecha" type="date" class="form-control text_center" id="fecha" name="fecha-renta" required>
       </div>
       <div class="full_size form-group margin_20_left">
         <label for="hora">Hora:</label>
-        <input type="time" class="form-control text_center" id="hora" placeholder="Ingrese su nombre" required>
+        <input formControlName="hora" type="time" class="form-control text_center" id="hora" placeholder="Ingrese su nombre" name="hora-renta" required>
       </div>
     </div>
     <div class="form-group">
-      <label for="duracion">Duración de renta (en días):</label>
-      <input type="number" class="form-control" id="duracion" min="1" required>
+      <label for="duracion">Duración de renta (en semanas):</label>
+      <div class="flex_around counter">
+        <button (click)="cambiarSemanas(false)" class="btn btn-danger" style="margin-right: 10%; width: 70px; height: 40px;">-</button>
+        <input formControlName="duracion" type="number" class="form-control text_center sin-flechas" id="duracion" min="1" max="10" inputmode="numeric" required readonly>
+        <button (click)="cambiarSemanas(true)" class="btn btn-success" style="margin-left: 10%; width: 70px; height: 40px;">+</button>
+      </div>
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
   </form>  
