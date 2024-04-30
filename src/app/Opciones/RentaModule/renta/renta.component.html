@@ -11,7 +11,7 @@
 </div>
 <div class="form">
   <h1>Complete el registro de renta</h1>
-  <form [formGroup]="datosReservacion" (ngSubmit)="submitDatos()">
+  <form [formGroup]="datosReservacion">
     <div class="form-group">
       <label for="nombre">Nombre:</label>
       <input formControlName="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" required>
@@ -42,6 +42,6 @@
         <button (click)="cambiarSemanas(true)" class="btn btn-success" style="margin-left: 10%; width: 70px; height: 40px;">+</button>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button (click)="submitDatos()" type="submit" class="btn btn-primary">Enviar</button>
   </form>  
 </div>

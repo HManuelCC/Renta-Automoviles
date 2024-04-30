@@ -5,6 +5,7 @@ import { FormGroup, FormsModule,FormControl, ReactiveFormsModule, Validators } f
 import { Autos } from '../../../services/Productos/Autos';
 import { ProductosService } from '../../../services/Productos/productos.service';
 import Swal from 'sweetalert2';
+import { RentaService } from '../../../services/Renta/renta.service';
 
 @Component({
   selector: 'app-renta',
@@ -31,12 +32,11 @@ export class RentaComponent implements OnInit{
       console.log(params['id']);
       this.productos.getProductoById(params['id']).then((data)=>{
         this.auto=data;
-        console.log(this.auto);
       })
     });
   }
 
-  constructor(private route: ActivatedRoute,private productos:ProductosService,private navigator:Router) { 
+  constructor(private route: ActivatedRoute,private productos:ProductosService,private navigator:Router,private renta:RentaService) { 
     this.datePipe=new DatePipe('en-US');
   }
 
@@ -81,6 +81,8 @@ export class RentaComponent implements OnInit{
           'Tu reservacion ha sido realizada',
           'success'
         )
+        this.datosReservacion.controls['duracion'].setValue(Number(this.datosReservacion.value.duracion));
+        this.renta.setProcutos(this.auto!,this.datosReservacion);
         this.navigator.navigate(['renta']);
       }else{
         await Swal.fire(
@@ -89,6 +91,7 @@ export class RentaComponent implements OnInit{
           'error'
         )
         this.datosReservacion.reset();
+        this.datosReservacion.controls['duracion'].setValue(1);
         //this.navigator.navigate(['renta']);
       }
     })
