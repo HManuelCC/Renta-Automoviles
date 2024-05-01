@@ -6,12 +6,11 @@ import { Autos } from '../../../services/Productos/Autos';
 import { ProductosService } from '../../../services/Productos/productos.service';
 import Swal from 'sweetalert2';
 import { RentaService } from '../../../services/Renta/renta.service';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-renta',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule,MatDatepickerModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule],
   templateUrl: './renta.component.html',
   styleUrl: './renta.component.css'
 })

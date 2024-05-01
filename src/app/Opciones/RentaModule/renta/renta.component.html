@@ -27,9 +27,7 @@
     <div class="flex_around">
       <div class="full_size form-group margin_20_right">
         <label for="fecha">Fecha de renta:</label>
-        <input matInput [matDatepicker]="picker">
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        
         <input formControlName="fecha" type="date" class="form-control text_center" id="fecha" name="fecha-renta" required>
       </div>
       <div class="full_size form-group margin_20_left">
