@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Renta, RentaService } from '../../../services/Renta/renta.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule, DatePipe } from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-bitacora-detalle',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,MatCardModule],
   templateUrl: './bitacora-detalle.component.html',
   styleUrl: './bitacora-detalle.component.css'
 })

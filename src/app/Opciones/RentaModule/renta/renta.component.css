@@ -107,3 +107,6 @@ button[type="submit"] {
     text-align: center;
 }
 
+.flex{
+    display: flex;
+}

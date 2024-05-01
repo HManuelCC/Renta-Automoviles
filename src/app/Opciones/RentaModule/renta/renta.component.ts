@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormGroup, FormsModule,FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -6,11 +6,18 @@ import { Autos } from '../../../services/Productos/Autos';
 import { ProductosService } from '../../../services/Productos/productos.service';
 import Swal from 'sweetalert2';
 import { RentaService } from '../../../services/Renta/renta.service';
+import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatLabel } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-renta',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule,MatDatepickerModule
+    ,MatFormField,MatLabel,MatFormFieldModule,MatInputModule,MatIconModule,MatButtonModule],
   templateUrl: './renta.component.html',
   styleUrl: './renta.component.css'
 })
@@ -18,6 +25,7 @@ export class RentaComponent implements OnInit{
 
   auto?:Autos;
   datePipe: any;
+  @ViewChild('picker') picker!: MatDatepicker<Date>;
   datosReservacion:FormGroup = new FormGroup({
     nombre:new FormControl('',Validators.required),
     email:new FormControl('',[Validators.required,Validators.email]),
@@ -34,6 +42,7 @@ export class RentaComponent implements OnInit{
         this.auto=data;
       })
     });
+    
   }
 
   constructor(private route: ActivatedRoute,private productos:ProductosService,private navigator:Router,private renta:RentaService) { 

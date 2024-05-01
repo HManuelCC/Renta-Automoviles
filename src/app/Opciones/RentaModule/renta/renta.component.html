@@ -27,8 +27,11 @@
     <div class="flex_around">
       <div class="full_size form-group margin_20_right">
         <label for="fecha">Fecha de renta:</label>
-        
-        <input formControlName="fecha" type="date" class="form-control text_center" id="fecha" name="fecha-renta" required>
+        <div class="flex">
+          <input (click)="picker.open()" formControlName="fecha" class="form-control text_center" matInput [matDatepicker]="picker" readonly required>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
       </div>
       <div class="full_size form-group margin_20_left">
         <label for="hora">Hora:</label>
@@ -38,9 +41,15 @@
     <div class="form-group">
       <label for="duracion">Duración de renta (en días):</label>
       <div class="flex_around counter">
-        <button (click)="cambiarSemanas(false)" class="btn btn-danger" style="margin-right: 10%; width: 70px; height: 40px;">-</button>
+        <button style="margin-right: 10%;height: 40px; width: 40px;" (click)="cambiarSemanas(false)" mat-fab matTooltip="Primary" color="warn" aria-label="Example fab with a heart icon">
+          <mat-icon>horizontal_rule</mat-icon>
+        </button>
+        <!--button (click)="cambiarSemanas(false)" class="btn btn-danger" style="margin-right: 10%; width: 70px; height: 40px;">-</button-->
         <input formControlName="duracion" type="number" class="form-control text_center sin-flechas" id="duracion" min="1" max="10" inputmode="numeric" required readonly>
-        <button (click)="cambiarSemanas(true)" class="btn btn-success" style="margin-left: 10%; width: 70px; height: 40px;">+</button>
+        <button (click)="cambiarSemanas(true)" style="margin-left: 10%; height: 40px; width: 40px;" mat-fab matTooltip="Primary" color="warn" aria-label="Example fab with a heart icon">
+          <mat-icon>add</mat-icon>
+        </button>
+        <!--button (click)="cambiarSemanas(true)" class="btn btn-success" style="margin-left: 10%; width: 70px; height: 40px;">+</button-->
       </div>
     </div>
     <button (click)="submitDatos()" type="submit" class="btn btn-primary">Enviar</button>
