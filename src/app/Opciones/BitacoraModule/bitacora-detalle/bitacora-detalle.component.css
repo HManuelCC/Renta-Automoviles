@@ -1,15 +1,16 @@
 .info{
     margin: 90px;
-}
-p{
-    color: white;
-    text-shadow: 1px 1px 2px black;
+    display: flex;
+    justify-content: center;
 }
 h2{
     text-shadow: 1px 1px 2px black;
 }
 img{
     background: linear-gradient(to right, rgb(0 0 0 / .5),rgb(0 0 0 / .5));
+}
+p{
+    font-size: 18pt;
 }
 .card-img-overlay{
     background-color: rgba(0, 0, 0, 0.4);
@@ -110,3 +111,10 @@ button[type="submit"] {
     padding: 15px;
 }
 
+.example-card {
+    max-width: 700px;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }

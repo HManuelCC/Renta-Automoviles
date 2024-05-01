@@ -1,14 +1,20 @@
 <div class="info" >
-    <div class="card bg-dark text-white">
-      <img class="card-img" src="{{rentas[0].auto.img}}" alt="Card image">
-      <div class="card-img-overlay">
-        <h2 class="card-title">{{rentas[0].auto.marca}}</h2>
-        <p class="card-text">{{rentas[0].auto.descripcion}}</p>
-        <p class="card-text">{{rentas[0].auto.color}}</p>
-        <p class="card-text">{{rentas[0].auto.precio | currency:'USD'}}</p>
-      </div>
-    </div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div [ngStyle]="{'background-image': 'url(' +rentas[0].auto.img+ ')'}" mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{rentas[0].auto.marca}}</mat-card-title>
+      <mat-card-subtitle>{{rentas[0].auto.modelo}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{rentas[0].auto.img}}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{rentas[0].auto.descripcion}}
+      </p>
+    </mat-card-content>
+  </mat-card>
   </div>
+  
+  
   <div class="form">
     <h1 style="text-align: center;">Datos de las rentas</h1>
     @for (renta of rentas; track $index) {
