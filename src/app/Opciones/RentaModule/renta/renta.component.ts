@@ -44,11 +44,14 @@ export class RentaComponent implements OnInit{
     if(fecha=='' || hora==''){
       return false;
     }
-    let fechaActual = new Date();
+    let fechaActual = new Date(this.datePipe.transform(Date.now(),'yyyy-MM-dd HH:mm:ss'));
+    console.log(fechaActual);
     let fechaSeleccionada =new Date(fecha);
-    fechaActual.setSeconds(0);
-    fechaSeleccionada.setHours(parseInt(hora.split(':')[0]),parseInt(hora.split(':')[1]));
-    if (fechaSeleccionada.getTime()>=fechaActual.getTime()) {
+    fechaSeleccionada=new Date(this.datePipe.transform(fecha,'yyyy-MM-dd HH:mm:ss'))
+    fechaSeleccionada.setHours(Number(hora.split(':')[0]));
+    fechaSeleccionada.setMinutes(Number(hora.split(':')[1]));
+    
+    if (fechaSeleccionada.getTime()>fechaActual.getTime()) {
       return true;
     }else{
       Swal.fire({

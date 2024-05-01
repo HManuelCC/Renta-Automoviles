@@ -1,22 +1,74 @@
 <div>
-    <select class="form-control" name="opciones" id="opciones" [(ngModel)]="opcionSeleccionada">
-        @for (opcion of opciones; track $index) {
-            <option value="{{opcion}}">{{opcion}}</option>
-        }
-    </select>
-</div>
-@switch (opcionSeleccionada) {
-    @case ("Actuales") {
-        <ul>
-            @for (renta of rentasActuales; track $index) {
-                <li>{{renta.auto.modelo}}</li>
+    <div class="margin-all-40">
+        <select class="form-control" name="opciones" id="opciones" [(ngModel)]="opcionSeleccionada">
+            @for (opcion of opciones; track $index) {
+                <option value="{{opcion}}">{{opcion}}</option>
             }
-        </ul>
+        </select>
+    </div>
+    @switch (opcionSeleccionada) {
+        @case ("Actuales") {
+            <div class="margin-all-40">
+                <table class="table table-success table-striped border-circular">
+                    <thead>
+                        <tr class="table-info">
+                            <th>Nombre</th>
+                            <th>Fecha de renta</th>
+                            <th>Fecha de finalizacion</th>
+                            <th>Duración</th>
+                            <th>Auto</th>
+                            <th>Modelo</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (renta of rentasActuales; track $index) {
+                            <tr>
+                                <td>{{renta.datos.nombre}}</td>
+                                <td>{{fechaInicio(renta.datos.fecha,renta.datos.hora) | date:'medium'}}</td>
+                                <td>{{fechaFinalizacion(renta.datos.fecha,renta.datos.hora,renta.datos.duracion) | date:'medium'}}</td>
+                                <td>{{renta.datos.duracion+" días"}}</td>
+                                <td>{{renta.auto.marca}}</td>
+                                <td>{{renta.auto.modelo}}</td>
+                                <td>{{(renta.auto.precio*renta.datos.duracion)|currency:'USD'}}</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        @case ("Pasadas") {
+            <div class="margin-all-40">
+                <table class="table table-warning table-striped border-circular">
+                    <thead>
+                        <tr class="table-danger">
+                            <th>Nombre</th>
+                            <th>Fecha de renta</th>
+                            <th>Fecha de finalizacion</th>
+                            <th>Duración</th>
+                            <th>Auto</th>
+                            <th>Modelo</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (renta of rentasPasadas; track $index) {
+                            <tr>
+                                <td>{{renta.datos.nombre}}</td>
+                                <td>{{fechaInicio(renta.datos.fecha,renta.datos.hora) | date:'medium'}}</td>
+                                <td>{{fechaFinalizacion(renta.datos.fecha,renta.datos.hora,renta.datos.duracion) | date:'medium'}}</td>
+                                <td>{{renta.datos.duracion+" días"}}</td>
+                                <td>{{renta.auto.marca}}</td>
+                                <td>{{renta.auto.modelo}}</td>
+                                <td>{{(renta.auto.precio*renta.datos.duracion)|currency:'USD'}}</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        @default {
+            <div>No se como llegaste a esto pero :)</div>
+        }
     }
-    @case ("Pasadas") {
-
-    }
-    @default {
-        <div>No se como llegaste a esto pero :)</div>
-    }
-}
+</div>

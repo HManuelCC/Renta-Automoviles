@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Autos } from '../Productos/Autos';
 import { FormGroup } from '@angular/forms';
-import { DatosRentas } from './DatosRentas';
+import { DatosRentas } from './Datos';
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,11 @@ import { DatosRentas } from './DatosRentas';
 export class RentaService {
 
   private listRentas:Array<Renta>=localStorage.getItem('rentas')?JSON.parse(localStorage.getItem('rentas')||'[]'):[];
+  private datePipe: any;
 
-  constructor() { }
+  constructor() {
+    this.datePipe=new DatePipe('en-US');
+  }
 
   setProcutos(auto:Autos,datos:FormGroup){
     let renta={
@@ -31,8 +35,8 @@ export class RentaService {
       return [];
     }else{
       return this.listRentas.filter((renta)=>{
-        let fechaExpiracion = new Date(renta.datos.fecha);
-        fechaExpiracion.setHours(parseInt(renta.datos.hora.split(':')[0]),parseInt(renta.datos.hora.split(':')[1]));
+        let fechaExpiracion = new Date(this.datePipe.transform(renta.datos.fecha,'yyyy-MM-dd HH:mm:ss'));
+        fechaExpiracion.setHours(Number(renta.datos.hora.split(':')[0]),Number(renta.datos.hora.split(':')[1]));
         fechaExpiracion.setDate(fechaExpiracion.getDate()+renta.datos.duracion);
         return fechaExpiracion.getTime()<new Date().getTime();
       });
@@ -45,8 +49,8 @@ export class RentaService {
       return [];
     }else{
       return this.listRentas.filter((renta)=>{
-        let fechaExpiracion = new Date(renta.datos.fecha);
-        fechaExpiracion.setHours(parseInt(renta.datos.hora.split(':')[0]),parseInt(renta.datos.hora.split(':')[1]));
+        let fechaExpiracion = new Date(this.datePipe.transform(renta.datos.fecha,'yyyy-MM-dd HH:mm:ss'));
+        fechaExpiracion.setHours(Number(renta.datos.hora.split(':')[0]),Number(renta.datos.hora.split(':')[1]));
         fechaExpiracion.setDate(fechaExpiracion.getDate()+renta.datos.duracion);
         return fechaExpiracion.getTime()>=new Date().getTime();
       });
