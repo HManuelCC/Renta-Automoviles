@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Renta, RentaService } from '../../services/Renta/renta.service';
+import { Renta, RentaService } from '../../../services/Renta/renta.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bitacora',
@@ -17,7 +18,7 @@ export class BitacoraComponent implements OnInit{
   opcionSeleccionada='Actuales';
   private datePipe: any;
 
-  constructor(private renta:RentaService) {
+  constructor(private renta:RentaService,private navigator:Router) {
     this.datePipe=new DatePipe('en-US');
   }
 
@@ -37,5 +38,9 @@ export class BitacoraComponent implements OnInit{
     let fechaInicio = new Date(this.datePipe.transform(fecha,'yyyy-MM-dd HH:mm:ss'));
     fechaInicio.setHours(parseInt(hora.split(':')[0]),parseInt(hora.split(':')[1]));
     return fechaInicio;
+  }
+
+  detalleRenta(id:number){
+    this.navigator.navigate(['detalle',id]);
   }
 }

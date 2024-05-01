@@ -3,11 +3,11 @@ a{
 }
 .sugerencias{
     background-color: rgba(255, 255, 255, 0.8);
-    width: 25%;
+    width: 40%;
     position: absolute;
     z-index: 9999;
     margin-top: 20px;
-    right: 20px;
+    right: 10px;
     border: 2pt solid black;
     border-radius: 5px;
 }
@@ -28,4 +28,7 @@ a{
 }
 .sugerencias img{
     border: 1pt solid black;
+}
+.items{
+    margin: 40px;
 }

@@ -24,6 +24,11 @@ export class RentaService {
     this.listRentas.push(renta);
     localStorage.setItem('rentas',JSON.stringify(this.listRentas));
   }
+  eliminarRegistro(index:number){
+    this.listRentas=localStorage.getItem('rentas')?JSON.parse(localStorage.getItem('rentas')||'[]'):[];
+    this.listRentas.splice(index,1);
+    localStorage.setItem('rentas',JSON.stringify(this.listRentas));
+  }
   getProductosByIndex(index:number):Renta{
     this.listRentas=localStorage.getItem('rentas')?JSON.parse(localStorage.getItem('rentas')||'[]'):[];
     return this.listRentas[index];
@@ -64,6 +69,20 @@ export class RentaService {
 
   clearLS(){
     localStorage.clear();
+  }
+
+  getRentaByModeloMarca(query:string):Array<Renta>{
+    this.listRentas=localStorage.getItem('rentas')?JSON.parse(localStorage.getItem('rentas')||'[]'):[];
+    
+    return this.listRentas.filter((renta)=>{
+      return renta.auto.marca.toLowerCase().includes(query.toLowerCase()) || renta.auto.modelo.toLowerCase().includes(query.toLowerCase());
+    });
+  }
+  getRentasById(id:number):Array<Renta>{
+    this.listRentas=localStorage.getItem('rentas')?JSON.parse(localStorage.getItem('rentas')||'[]'):[];
+    return this.listRentas.filter((renta)=>{
+      return renta.auto.id==id;
+    });
   }
 }
 

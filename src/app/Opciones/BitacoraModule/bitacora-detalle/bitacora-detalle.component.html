@@ -1,0 +1,45 @@
+<div class="info" >
+    <div class="card bg-dark text-white">
+      <img class="card-img" src="{{rentas[0].auto.img}}" alt="Card image">
+      <div class="card-img-overlay">
+        <h2 class="card-title">{{rentas[0].auto.marca}}</h2>
+        <p class="card-text">{{rentas[0].auto.descripcion}}</p>
+        <p class="card-text">{{rentas[0].auto.color}}</p>
+        <p class="card-text">{{rentas[0].auto.precio | currency:'USD'}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="form">
+    <h1 style="text-align: center;">Datos de las rentas</h1>
+    @for (renta of rentas; track $index) {
+        <form class="border_circular padding" [ngStyle]="{'border-color':colorBorde(renta.datos.fecha)}">
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input formControlName="nombre" [value]="renta.datos.nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" readonly>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input formControlName="email" [value]="renta.datos.email" type="email" class="form-control" id="email" placeholder="Ingrese su email" readonly>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono:</label>
+              <input formControlName="telefono" [value]="renta.datos.telefono" type="tel" class="form-control" id="telefono" placeholder="Ingrese su teléfono" readonly>
+            </div>
+            <div class="flex_around">
+              <div class="full_size form-group margin_20_right">
+                <label for="fecha">Fecha de renta:</label>
+                <input formControlName="fecha" [value]="renta.datos.fecha" type="date" class="form-control text_center" id="fecha" name="fecha-renta" readonly>
+              </div>
+              <div class="full_size form-group margin_20_left">
+                <label for="hora">Hora:</label>
+                <input formControlName="hora" [value]="renta.datos.hora" type="time" class="form-control text_center" id="hora" placeholder="Ingrese su nombre" name="hora-renta" readonly>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Fecha y hora de finalizacion:</label>
+                <input style="text-align: center;" formControlName="telefono" [value]="fechaFinalizacion(renta.datos.fecha,renta.datos.hora,renta.datos.duracion) | date:'medium'" type="tel" class="form-control" id="telefono" placeholder="Ingrese su teléfono" readonly>
+              </div>
+          </form>
+          <hr>
+    }
+  </div>

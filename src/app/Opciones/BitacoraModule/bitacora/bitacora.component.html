@@ -19,6 +19,7 @@
                             <th>Auto</th>
                             <th>Modelo</th>
                             <th>Total</th>
+                            <th>Info</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +32,7 @@
                                 <td>{{renta.auto.marca}}</td>
                                 <td>{{renta.auto.modelo}}</td>
                                 <td>{{(renta.auto.precio*renta.datos.duracion)|currency:'USD'}}</td>
+                                <td><button (click)="detalleRenta(renta.auto.id)" class="btn btn-danger">Ver</button></td>
                             </tr>
                         }
                     </tbody>
@@ -61,6 +63,7 @@
                                 <td>{{renta.auto.marca}}</td>
                                 <td>{{renta.auto.modelo}}</td>
                                 <td>{{(renta.auto.precio*renta.datos.duracion)|currency:'USD'}}</td>
+                                
                             </tr>
                         }
                     </tbody>

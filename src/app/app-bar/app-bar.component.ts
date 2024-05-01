@@ -4,6 +4,7 @@ import { ProductosService } from '../services/Productos/productos.service';
 import { Autos } from '../services/Productos/Autos';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Renta, RentaService } from '../services/Renta/renta.service';
 
 @Component({
   selector: 'app-app-bar',
@@ -16,7 +17,8 @@ export class AppBarComponent {
   busqueda=false;
   query:string=''
   autos:Array<Autos>=[]
-  constructor(private rutas:Router,private productosService:ProductosService) {
+  rentas:Array<Renta>=[]
+  constructor(private rutas:Router,private productosService:ProductosService,private rentaService:RentaService) {
 
   }
 
@@ -45,10 +47,12 @@ export class AppBarComponent {
     }else{
       this.productosService.getProductos().subscribe((data)=>{
         this.autos=data.filter((auto)=>auto.marca.toLowerCase().includes(this.query.toLowerCase()) || auto.modelo.toLowerCase().includes(this.query.toLowerCase()))
-        if(this.autos.length>=1){
+        this.rentas=this.rentaService.getRentaByModeloMarca(this.query);
+        if(this.autos.length>=1 || this.rentas.length>=1){
           this.busqueda=true;
         }
       })
+      
     }
     
   }
@@ -63,9 +67,21 @@ export class AppBarComponent {
     this.rutas.navigate(['about']);
   }
 
-  clickSugerencia(auto:Autos){
+  clickSugerenciaCatalogo(auto:Autos){
     if(auto.disponibilidad){
       this.rutas.navigate(['renta',auto.id]);
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Este auto no esta disponible',
+      })
+    }
+    this.query=''
+  }
+  clickSugerenciaRenta(auto:Autos){
+    if(auto.disponibilidad){
+      this.rutas.navigate(['detalle',auto.id]);
     }else{
       Swal.fire({
         icon: 'error',

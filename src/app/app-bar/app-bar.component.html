@@ -28,9 +28,10 @@
         </div>
         @if (busqueda) {
           <div class="sugerencias">
-            <ul>
+            <div class="items">
+              <h5>Catalogo</h5>
               @for (auto of autos; track $index) {
-                <div class="card" (click)="clickSugerencia(auto)">
+                <div class="card" (click)="clickSugerenciaCatalogo(auto)">
                   <div class="row g-0">
                     <div class="col-md-4">
                       <img src="{{auto.img}}" class="img-fluid rounded-start" alt="...">
@@ -43,7 +44,8 @@
                   </div>
                 </div>
               }
-            </ul>
+            </div>
+            
           </div>
         }
         

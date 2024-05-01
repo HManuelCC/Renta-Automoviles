@@ -6,11 +6,12 @@ import { Autos } from '../../../services/Productos/Autos';
 import { ProductosService } from '../../../services/Productos/productos.service';
 import Swal from 'sweetalert2';
 import { RentaService } from '../../../services/Renta/renta.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-renta',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule,MatDatepickerModule],
   templateUrl: './renta.component.html',
   styleUrl: './renta.component.css'
 })
@@ -42,7 +43,7 @@ export class RentaComponent implements OnInit{
 
   validarFecha(fecha:string,hora:string){
     if(fecha=='' || hora==''){
-      return false;
+      return true;
     }
     let fechaActual = new Date(this.datePipe.transform(Date.now(),'yyyy-MM-dd HH:mm:ss'));
     console.log(fechaActual);
@@ -52,21 +53,31 @@ export class RentaComponent implements OnInit{
     fechaSeleccionada.setMinutes(Number(hora.split(':')[1]));
     
     if (fechaSeleccionada.getTime()>fechaActual.getTime()) {
-      return true;
-    }else{
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'La fecha seleccionada no es valida',
-      })
-      this.datosReservacion.controls['fecha'].setValue('');
-      this.datosReservacion.controls['hora'].setValue('');
       return false;
+    }else{
+      return true;
     }
   }
 
   submitDatos(){
-   if(!this.validarFecha(this.datosReservacion.value.fecha,this.datosReservacion.value.hora)){
+   if(this.validarFecha(this.datosReservacion.value.fecha,this.datosReservacion.value.hora)){
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'No puedes rentar un auto en el pasado',
+    })
+    this.datosReservacion.controls['fecha'].setValue('');
+    this.datosReservacion.controls['hora'].setValue('');
+    return;
+   }
+   if(this.fechaOcupada(this.datosReservacion.value.fecha,this.datosReservacion.value.hora,this.auto!.id)){
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'El auto ya esta rentado en esa fecha',
+    })
+    this.datosReservacion.controls['fecha'].setValue('');
+    this.datosReservacion.controls['hora'].setValue('');
     return;
    }
     Swal.fire({
@@ -110,6 +121,24 @@ export class RentaComponent implements OnInit{
         this.datosReservacion.controls['duracion'].setValue(Number(this.datosReservacion.value.duracion)-1);
       }
     }
+  }
+
+  fechaOcupada(fecha:string,hora:string,id:number):boolean{
+    let fechaSolicitada = new Date(this.datePipe.transform(fecha,'yyyy-MM-dd HH:mm:ss'));
+    fechaSolicitada.setHours(Number(hora.split(':')[0]),Number(hora.split(':')[1]));
+    let rentasActuales = this.renta.getRentasById(id);
+    if(rentasActuales.length==0){
+      return false;
+    }
+    rentasActuales=rentasActuales.filter((renta)=>{
+      let fechafinalizacion=new Date(this.datePipe.transform(renta.datos.fecha,'yyyy-MM-dd HH:mm:ss'));
+      fechafinalizacion.setHours(Number(renta.datos.hora.split(':')[0]),Number(renta.datos.hora.split(':')[1]));
+      fechafinalizacion.setDate(fechafinalizacion.getDate()+renta.datos.duracion);
+      console.log("Fehca Finalizacion: "+fechafinalizacion+" fecha solicitada: "+fechaSolicitada);
+      return fechaSolicitada.getTime()<fechafinalizacion.getTime();
+    })
+    console.log(rentasActuales);
+    return rentasActuales.length>0;
   }
     
 }
