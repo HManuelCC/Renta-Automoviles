@@ -1,103 +1,112 @@
 [
     {
-        "id":1,
+        "id": 1,
         "marca": "Audi",
         "modelo": "A4",
         "year": 2023,
         "color": "Rojo",
-        "precio": 889900,
-        "disponibilidad": false,
-        "img": "assets/img/audi4.jpg"
+        "precio": 849900,
+        "disponibilidad": true,
+        "img": "assets/images/audi4.jpg",
+        "descripcion": "El Audi A4 es un sedán elegante y deportivo que combina lujo y rendimiento. Su diseño aerodinámico y su motor potente lo hacen perfecto para quienes buscan confort y velocidad."
     },
     {
-        "id":2,
+        "id": 2,
         "marca": "BMW",
         "modelo": "Serie 3",
         "year": 2023,
         "color": "Blanco",
-        "precio": 899900,
+        "precio": 879900,
         "disponibilidad": true,
-        "img": "assets/img/bmw.jpg"
+        "img": "assets/images/bmw.jpg",
+        "descripcion": "El BMW Serie 3 es un sedán de lujo que ofrece un equilibrio excepcional entre rendimiento y comodidad. Con su diseño moderno y su tecnología avanzada, redefine la experiencia de conducción."
     },
     {
-        "id":3,
+        "id": 3,
         "marca": "Chevrolet",
         "modelo": "Camaro",
         "year": 2023,
-        "color":"Blanco",
-        "precio": 899900,
-        "disponibilidad": true,
-        "img": "assets/img/camaro.jpg"
+        "color": "Blanco",
+        "precio": 799900,
+        "disponibilidad": false,
+        "img": "assets/images/camaro.jpg",
+        "descripcion": "El Chevrolet Camaro es un ícono de la potencia americana. Con su diseño musculoso y su rendimiento excepcional, es la opción perfecta para los amantes de los autos deportivos."
     },
     {
-        "id":4,
+        "id": 4,
         "marca": "Ford",
         "modelo": "Mustang",
         "year": 2023,
         "color": "Rojo",
-        "precio": 899900,
+        "precio": 859900,
         "disponibilidad": true,
-        "img": "assets/img/mustang.jpg"
+        "img": "assets/images/mustang.jpg",
+        "descripcion": "El Ford Mustang es un legendario muscle car que encarna la esencia del poder y la libertad. Su diseño clásico y su rendimiento incomparable lo convierten en un icono de la carretera."
     },
     {
-        "id":5,
+        "id": 5,
         "marca": "Mercedes Benz",
         "modelo": "Clase C",
         "year": 2023,
         "color": "Blanco",
-        "precio": 899900,
+        "precio": 919900,
         "disponibilidad": true,
-        "img": "assets/img/mercedes.jpg"
+        "img": "assets/images/mercedes.jpg",
+        "descripcion": "El Mercedes Benz Clase C es un sedán de lujo que combina elegancia con tecnología de vanguardia. Su confort excepcional y su estilo refinado lo hacen destacar en cualquier camino."
     },
     {
-        "id":6,
+        "id": 6,
         "marca": "Nissan",
         "modelo": "370Z",
         "year": 2023,
-        "color":"Rojo",
-        "precio": 899900,
-        "disponibilidad": true,
-        "img": "assets/img/nissan.jpg"
+        "color": "Rojo",
+        "precio": 849900,
+        "disponibilidad": false,
+        "img": "assets/images/nissan.jpg",
+        "descripcion": "El Nissan 370Z es un deportivo que ofrece un rendimiento emocionante y un manejo ágil. Su diseño aerodinámico y su motor potente lo convierten en una experiencia de conducción única."
     },
     {
-        "id":7,
+        "id": 7,
         "marca": "Toyota",
         "modelo": "Supra",
         "year": 2023,
         "color": "Blanco",
-        "precio": 899900,
+        "precio": 929900,
         "disponibilidad": true,
-        "img": "assets/img/supra.jpg"
+        "img": "assets/images/supra.jpg",
+        "descripcion": "El Toyota Supra es un deportivo legendario que combina estilo y rendimiento de manera excepcional. Con su diseño aerodinámico y su tecnología innovadora, redefine la emoción de conducir."
     },
     {
-        "id":8,
+        "id": 8,
         "marca": "Volkswagen",
         "modelo": "Golf GTI",
         "year": 2023,
         "color": "Rojo",
-        "precio": 899900,
+        "precio": 839900,
         "disponibilidad": true,
-        "img": "assets/img/volkswagen.jpg"
+        "img": "assets/images/volkswagen.jpg",
+        "descripcion": "El Volkswagen Golf GTI es un hatchback deportivo que ofrece un equilibrio perfecto entre rendimiento y practicidad. Con su diseño icónico y su manejo ágil, garantiza una experiencia emocionante en la carretera."
     },
     {
-        "id":9,
+        "id": 9,
         "marca": "Volvo",
         "modelo": "XC40",
         "year": 2023,
         "color": "Blanco",
         "precio": 899900,
-        "disponibilidad": true,
-        "img": "assets/img/volvo.jpg"
+        "disponibilidad": false,
+        "img": "assets/images/volvo.jpg",
+        "descripcion": "El Volvo XC40 es un SUV compacto que combina seguridad, estilo y versatilidad. Con su diseño elegante y su tecnología innovadora, ofrece una experiencia de conducción premium en cualquier terreno."
     },
     {
-        "id":10,
+        "id": 10,
         "marca": "Audi",
         "modelo": "A6",
         "year": 2023,
         "color": "Rojo",
-        "precio": 899900,
-        "disponibilidad": true,
-        "img": "assets/img/audi6.jpg"
+        "precio": 889900,
+        "disponibilidad": false,
+        "img": "assets/images/audi6.jpg",
+        "descripcion": "El Audi A6 es una berlina de lujo que combina elegancia con rendimiento. Con su diseño sofisticado y su tecnología avanzada, redefine el estándar de excelencia en el segmento de sedanes de alta gama."
     }
 ]
-  

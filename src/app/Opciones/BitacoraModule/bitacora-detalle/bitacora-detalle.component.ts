@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Renta, RentaService } from '../../../services/Renta/renta.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule, DatePipe } from '@angular/common';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-bitacora-detalle',
@@ -37,7 +37,7 @@ export class BitacoraDetalleComponent implements OnInit{
       return renta.datos.fecha==fecha;
     });
     if(rentasPasadas.length>0){
-      return '#CD2A19"';
+      return '#CD2A19';
     }else{
       return '#19CDAA';
     }
