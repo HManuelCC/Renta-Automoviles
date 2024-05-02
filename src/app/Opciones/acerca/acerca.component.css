@@ -1,0 +1,155 @@
+/* Estilos generales del contenedor */
+.container {
+    font-family: 'Arial', sans-serif;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Estilos de la sección '¿Quiénes somos?' */
+.seccion-acerca-de {
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.seccion-acerca-de h2 {
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+/* Estilos de las filas y columnas */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Estilos de la sección 'Misión y Visión' */
+.seccion-mision-vision h3 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+/* Estilos de la lista de valores */
+.valores ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.valores li {
+    margin-bottom: 10px;
+}
+
+.valores i {
+    margin-right: 5px;
+}
+
+/* Estilos de la sección 'Contacto' */
+.contacto h3 {
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+
+.contacto ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.contacto li {
+    margin-bottom: 10px;
+}
+
+.contacto i {
+    margin-right: 5px;
+}
+
+/* Estilos de los íconos de FontAwesome */
+.fas {
+    color: #333333;
+}
+
+/* Estilos Generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos para el eslogan y logo */
+main > div:first-child {
+    text-align: center;
+    margin: 20px 0;
+}
+
+main > div:first-child p {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+main > div:first-child img {
+    max-width: 100px;
+    height: auto;
+}
+
+/* Estilos para el banner principal */
+.baner {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.baner p {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.baner img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+/* Estilos para la información destacada */
+.info {
+    width: 90%;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.info p {
+    font-size: 18px;
+    color: #666;
+    padding: 15px;
+    background-color: #f8f8f8;
+    margin: 0;
+}
+
+.info img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
