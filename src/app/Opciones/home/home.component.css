@@ -1,43 +1,91 @@
-main{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 70px;
-    padding: 40px;
-}
-.baner{
-    grid-column: span 3;
-    height: 700px;
-    margin-left: 5%;
-    margin-right: 5%;
-    background-color: transparent;
-    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.7);
-}
-.baner img{
-    width: 100%;
-    height: 100%;
-}
-.baner p{
-    font-size: 24px;
-  font-weight: bold;
-  margin-right: 20px;
-}
-.info{
-    margin-top: 50px;
-    padding: 30px;
-    grid-column: span 1;
-}
-.info img{
-    width: 100%;
-    height: 100%;
+body {
+  background-color: #0cc5f4;
+  margin: 0;
+  padding: 0;
 }
 
-.info p {
-    font-size: 18px;
-    margin-right: 20px;
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  padding: 40px;
+  perspective: 2000px;
 }
-p{
-    text-align: center;
+
+.baner {
+  grid-column: span 3;
+  height: 500px;
+  margin: 0 auto;
+  background-color: transparent;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
 }
+
+.baner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: grayscale(50%) brightness(80%);
+}
+
+.slogan {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: transform 0.5s ease-in-out;
+  animation: moveText 1.5s infinite alternate;
+}
+
+.baner:hover .slogan {
+  transform: translateY(-100%) rotate(10deg);
+}
+
+@keyframes moveText {
+  from {
+      transform: translateX(-5px);
+  }
+  to {
+      transform: translateX(5px);
+  }
+}
+
+.info {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transform: rotateY(-10deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+.info:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.info img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+p {
+  text-align: center;
+  font-size: 20px;
+  color: #333;
+  margin-top: 20px;
+}
+
 
 .video {
     display: flex;

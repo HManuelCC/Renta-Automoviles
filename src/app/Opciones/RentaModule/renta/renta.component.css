@@ -1,40 +1,41 @@
-.info{
-    margin: 90px;
-}
-p{
-    color: white;
-    text-shadow: 1px 1px 2px black;
-}
-h2{
-    text-shadow: 1px 1px 2px black;
-}
-img{
-    background: linear-gradient(to right, rgb(0 0 0 / .5),rgb(0 0 0 / .5));
-}
-.card-img-overlay{
-    background-color: rgba(0, 0, 0, 0.4);
-}
+/* Estilos generales */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
 }
 
-/* Contenedor del formulario */
+/* Estilos del contenedor principal */
+.info {
+  margin: 90px;
+}
+
+/* Estilos para los textos */
+p, h2 {
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* Estilos para las imágenes */
+img {
+  background: linear-gradient(to right, rgb(0 0 0 / .5),rgb(0 0 0 / .5));
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Refinado: transición */
+}
+
+/* Estilos para la superposición de la tarjeta */
+.card-img-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para el formulario */
 .form-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.form{
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10%;
-
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos para los campos de entrada */
@@ -44,69 +45,86 @@ input[type="tel"],
 input[type="date"],
 input[type="time"],
 input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 14px;
-}
-
-.sin-flechas{
-    -moz-appearance: textfield;
-    appearance: textfield;
-}
-
-
-.counter{
-    margin-left: 40%;
-    margin-right: 40%;
-}
-
-.sin-flechas::-webkit-outer-spin-button,
-.sin-flechas::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Estilos para las etiquetas */
-label {
-    font-weight: bold;
-    color: #333;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+  transition: border-color 0.3s ease-in-out; /* Refinado: transición */
 }
 
 /* Estilos para el botón de envío */
 button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    padding: 10px 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.flex_around{
-    display: flex;
-    justify-content: space-around;
-}
-.full_size{
-    height: 100%;
-    width: 100%;
-}
-.border_circular{
-    border-radius: 15px;
-    border: 2pt solid black;
-}
-.margin_20_left{
-    margin-left: 20px;
-}
-.margin_20_right{
-    margin-right: 20px;
-}
-.text_center{
-    text-align: center;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; /* Refinado: transición */
 }
 
-.flex{
-    display: flex;
+/* Estilos para el botón de envío al pasar el mouse */
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para el contador */
+.counter {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+/* Estilos para los botones de incremento y decremento */
+.sin-flechas::-webkit-outer-spin-button,
+.sin-flechas::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Estilos para la sección de fecha */
+.flex_around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.full_size {
+  height: 100%;
+  width: 100%;
+}
+
+.border_circular {
+  border-radius: 15px;
+  border: 2pt solid black;
+}
+
+.margin_20_left {
+  margin-left: 20px;
+}
+
+.margin_20_right {
+  margin-right: 20px;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+/* Efecto de zoom en las imágenes al pasar el mouse */
+.card-img-overlay:hover + .card-img {
+  transform: scale(1.1); /* Refinado: escala al pasar el mouse */
+  filter: brightness(80%); /* Refinado: reducción de brillo */
+}
+
+/* Efecto de cambio de borde al enfocar los campos de entrada */
+input:focus {
+  border-color: #007bff; /* Refinado: cambio de color de borde al enfocar */
 }
