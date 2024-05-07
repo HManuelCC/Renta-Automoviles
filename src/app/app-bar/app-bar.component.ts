@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet,Router } from '@angular/router';
+import { RouterOutlet,Router, ActivatedRoute } from '@angular/router';
 import { ProductosService } from '../services/Productos/productos.service';
 import { Autos } from '../services/Productos/Autos';
 import { FormsModule } from '@angular/forms';
@@ -18,19 +18,24 @@ export class AppBarComponent {
   query:string=''
   autos:Array<Autos>=[]
   rentas:Array<Renta>=[]
+  rutaActual:string=""
   constructor(private rutas:Router,private productosService:ProductosService,private rentaService:RentaService) {
-
+    this.rutaActual="Home"
   }
 
   Home(){
-    console.log("Home");
+    
+    this.rutaActual="Home";
+    console.log(this.rutaActual);
     this.rutas.navigate(['home']);
   }
   Bitacora(){
+    this.rutaActual="bitacora";
     this.rutas.navigate(['bitacora']);
   }
   Renta(){
     console.log("Renta");
+    this.rutaActual="renta";
     this.rutas.navigate(['renta']);
   }
 
@@ -64,6 +69,7 @@ export class AppBarComponent {
     this.busqueda=false;
   }
   about(){
+    this.rutaActual="about";
     this.rutas.navigate(['about']);
   }
 
