@@ -5,31 +5,35 @@
 
   <div class="slogan">Más que autos, experiencias <span>inolvidables.</span></div>
 
-  <div class="info">
-      <p>Selecciona la mejor opción</p>
-      <img src="assets/images/info1.jpg" alt="Info 1">
-  </div>
-  <div class="info">
-      <p>Facilita tus viajes</p>
-      <img src="assets/images/info2.jpg" alt="Info 2">
-  </div>
-  <div class="info">
-      <p>Facilidad para rentar</p>
-      <img src="assets/images/info3.jpg" alt="Info 3">
+  <div class="video">
+    <iframe
+        width="100%"
+        height="600"
+        [src]="video | domseguro:'https://www.youtube.com/embed/'"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+        gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+    </iframe>
+</div>
+
+  <div class="baner-info">
+    <div class="info">
+        <p>Selecciona la mejor opción</p>
+        <img src="assets/images/info1.jpg" alt="Info 1">
+    </div>
+    <div class="info">
+        <p>Facilita tus viajes</p>
+        <img src="assets/images/info2.jpg" alt="Info 2">
+    </div>
+    <div class="info">
+        <p>Facilidad para rentar</p>
+        <img src="assets/images/info3.jpg" alt="Info 3">
+    </div>
   </div>
 
-    <div class="video">
-        <iframe
-            width="560"
-            height="315"
-            [src]="video | domseguro:'https://www.youtube.com/embed/'"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-            gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
-        </iframe>
-    </div>
+    
 </main>
 

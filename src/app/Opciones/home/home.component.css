@@ -72,6 +72,7 @@ main {
   transform-style: preserve-3d;
   transform: rotateY(-10deg);
   transition: transform 0.5s ease-in-out;
+  width: 30%;
 }
 
 .info:hover {
@@ -102,5 +103,11 @@ p {
 }
 
 iframe {
-    border: none;
+  border: none;
+}
+.baner-info{
+  grid-column: span 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
