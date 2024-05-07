@@ -91,7 +91,7 @@ p {
     display: flex;
     justify-content: center;
     grid-column: span 3;
-    margin-top: 50px;
+    margin-top: 10%;
 }
 
 iframe {
