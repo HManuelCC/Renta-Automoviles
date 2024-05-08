@@ -14,29 +14,41 @@ import { Renta, RentaService } from '../services/Renta/renta.service';
   styleUrl: './app-bar.component.css'
 })
 export class AppBarComponent {
+  activeRoutes=[{ruta:"Home",active:"active"},{ruta:"Renta",active:""},{ruta:"Bitacora",active:""},{ruta:"Acerca de",active:""}]
   busqueda=false;
   query:string=''
   autos:Array<Autos>=[]
   rentas:Array<Renta>=[]
-  rutaActual:string=""
-  constructor(private rutas:Router,private productosService:ProductosService,private rentaService:RentaService) {
-    this.rutaActual="Home"
-  }
+  constructor(private rutas:Router,private productosService:ProductosService,private rentaService:RentaService) {}
 
+  switchPage(page:string){
+    this.switchActive(page);
+    switch(page){
+      case "Home":
+        this.Home();
+        break;
+      case "Renta":
+        this.Renta();
+        break;
+      case "Bitacora":
+        this.Bitacora();
+        break;
+      case "Acerca de":
+        this.about();
+        break;
+    }
+  }
   Home(){
-    
-    this.rutaActual="Home";
-    console.log(this.rutaActual);
     this.rutas.navigate(['home']);
   }
   Bitacora(){
-    this.rutaActual="bitacora";
     this.rutas.navigate(['bitacora']);
   }
   Renta(){
-    console.log("Renta");
-    this.rutaActual="renta";
     this.rutas.navigate(['renta']);
+  }
+  about(){
+    this.rutas.navigate(['about']);
   }
 
   blurSugerencias(){
@@ -68,10 +80,7 @@ export class AppBarComponent {
     }
     this.busqueda=false;
   }
-  about(){
-    this.rutaActual="about";
-    this.rutas.navigate(['about']);
-  }
+  
 
   clickSugerenciaCatalogo(auto:Autos){
     if(auto.disponibilidad){
@@ -96,5 +105,14 @@ export class AppBarComponent {
       })
     }
     this.query=''
+  }
+  switchActive(page:string){
+    this.activeRoutes.forEach((ruta)=>{
+      if(ruta.ruta==page){
+        ruta.active="active"
+      }else{
+        ruta.active=""
+      }
+    })
   }
 }

@@ -6,18 +6,11 @@
       <img src="../../assets/images/logo4.png" height="100px" width="100px">
       <!-- <a class="navbar-brand" href="#">Hidden brand</a> -->
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" (click)="Home()">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="Renta()">Renta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="Bitacora()">Bitacora </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" (click)="about()">Acerca de <!--span class="sr-only">(current)</span--></a>
+        @for (rutas of activeRoutes; track $index){
+          <li class="nav-item {{rutas.active}}">
+            <a class="nav-link" (click)="switchPage(rutas.ruta)">{{rutas.ruta}}</a>
           </li>
+        }
       </ul>
     </div>
     <div class="form-inline my-2 my-lg-0">

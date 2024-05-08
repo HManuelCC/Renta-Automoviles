@@ -88,35 +88,43 @@ export class RentaComponent implements OnInit{
     this.datosReservacion.controls['hora'].setValue('');
     return;
    }
-    Swal.fire({
-      title: '¿Estas seguro?',
-      text: "¿Deseas rentar este auto?",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si'
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        await Swal.fire(
-          'Reservado',
-          'Tu reservacion ha sido realizada',
-          'success'
-        )
-        this.datosReservacion.controls['duracion'].setValue(Number(this.datosReservacion.value.duracion));
-        this.renta.setProcutos(this.auto!,this.datosReservacion);
-        this.navigator.navigate(['renta']);
-      }else{
-        await Swal.fire(
-          'Cancelado',
-          'Tu reservacion ha sido cancelada',
-          'error'
-        )
-        this.datosReservacion.reset();
-        this.datosReservacion.controls['duracion'].setValue(1);
-        //this.navigator.navigate(['renta']);
-      }
-    })
+    if(this.datosReservacion.valid){
+      Swal.fire({
+        title: '¿Estas seguro?',
+        text: "¿Deseas rentar este auto?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si'
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await Swal.fire(
+            'Reservado',
+            'Tu reservacion ha sido realizada',
+            'success'
+          )
+          this.datosReservacion.controls['duracion'].setValue(Number(this.datosReservacion.value.duracion));
+          this.renta.setProcutos(this.auto!,this.datosReservacion);
+          this.navigator.navigate(['renta']);
+        }else{
+          await Swal.fire(
+            'Cancelado',
+            'Tu reservacion ha sido cancelada',
+            'error'
+          )
+          this.datosReservacion.reset();
+          this.datosReservacion.controls['duracion'].setValue(1);
+          //this.navigator.navigate(['renta']);
+        }
+      })
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Todos los campos son obligatorios',
+      })
+    }
   }
 
   cambiarSemanas(aumentar:boolean){
